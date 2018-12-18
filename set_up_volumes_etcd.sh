@@ -1,4 +1,5 @@
 ansible -i openshift_inventory etcd -a 'yum -y install lvm2'
+ansible -i openshift_inventory etcd -a 'wipefs /dev/sdc -a'
 ansible -i openshift_inventory etcd -a 'pvcreate /dev/sdc'
 ansible -i openshift_inventory etcd -a 'vgcreate etcd-vg /dev/sdc'
 ansible -i openshift_inventory etcd -a 'lvcreate -n etcd-lv -l 100%VG etcd-vg'
