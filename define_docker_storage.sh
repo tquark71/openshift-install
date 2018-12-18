@@ -1,5 +1,5 @@
 cat <<EOF > /etc/sysconfig/docker-storage-setup
-DEVS=/dev/vdb
+DEVS=/dev/sdb
 VG=docker-vg
 EOF
 
