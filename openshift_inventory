@@ -46,7 +46,7 @@ openshift_logging_install_logging=False
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}]
 
 ## Users being created in the cluster
-openshift_master_htpasswd_users={'admin': '$apr1$sdbeWAgV$cJQwTTNr8uevnbvU8aYSu1', 'user1': '$apr1$SCm8BWE8$VaSwAFBncgVke5Jj5rds10'}
+openshift_master_htpasswd_users={'admin': '$apr1$gY4dGJre$NzuENYX1unG90PEexPC6A1', 'user1': '$apr1$WsfL089B$V/MmpCcj6KgCt1ZL0h5PJ0'}
 
 openshift_public_hostname=console.10.0.0.1.nip.io
 openshift_master_default_subdomain=apps.10.0.0.1.nip.io
