@@ -4,15 +4,16 @@ nodes
 etcd
 
 [masters]
-patro-openshift-master1.mooo.com openshift_ip=172.16.51.40 openshift_schedulable=true 
+os-master1.mooo.com openshift_ip=10.0.0.1 openshift_schedulable=true
 
 [etcd]
-patro-openshift-master1.mooo.com openshift_ip=172.16.51.40
+os-master1.mooo.com openshift_ip=10.0.0.1
 
 [nodes]
-patro-openshift-master1.mooo.com openshift_ip=172.16.51.40 openshift_schedulable=true openshift_node_labels="{'region': 'master'}" openshift_node_group_name='node-config-master'
-patro-openshift-infra1.mooo.com openshift_ip=172.16.51.41 openshift_schedulable=true openshift_node_labels="{'region': 'infra'}" openshift_node_group_name='node-config-infra'
-patro-openshift-node1.mooo.com openshift_ip=172.16.51.42 openshift_schedulable=true openshift_node_labels="{'region': 'primary'}" openshift_node_group_name='node-config-compute'
+os-master1.mooo.com openshift_ip=10.0.0.1 openshift_schedulable=true openshift_node_labels="{'region': 'master'}" openshift_node_group_name='node-config-master'
+os-infra1.mooo.com openshift_ip=10.0.0.3 openshift_schedulable=true openshift_node_labels="{'region': 'infra'}" openshift_node_group_name='node-config-infra'
+os-node1.mooo.com openshift_ip=10.0.0.4 openshift_schedulable=true openshift_node_labels="{'region': 'primary'}" openshift_node_group_name='node-config-compute'
+os-node2.mooo.com openshift_ip=10.0.0.5 openshift_schedulable=true openshift_node_labels="{'region': 'primary'}" openshift_node_group_name='node-config-compute'
 
 [OSEv3:vars]
 openshift_additional_repos=[{'id': 'centos-paas', 'name': 'centos-paas', 'baseurl' :'https://buildlogs.centos.org/centos/7/paas/x86_64/openshift-origin311', 'gpgcheck' :'0', 'enabled' :'1'}]
@@ -47,8 +48,7 @@ openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 
 ## Users being created in the cluster
 openshift_master_htpasswd_users={'admin': '$apr1$sdbeWAgV$cJQwTTNr8uevnbvU8aYSu1', 'user1': '$apr1$SCm8BWE8$VaSwAFBncgVke5Jj5rds10'}
 
-openshift_public_hostname=console.172.16.51.40.nip.io
-openshift_master_default_subdomain=apps.172.16.51.40.nip.io
+openshift_public_hostname=console.10.0.0.1.nip.io
+openshift_master_default_subdomain=apps.10.0.0.1.nip.io
 openshift_master_api_port=8443
 openshift_master_console_port=8443
-
