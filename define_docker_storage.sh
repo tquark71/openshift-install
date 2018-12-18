@@ -3,4 +3,6 @@ DEVS=/dev/sdb
 VG=docker-vg
 EOF
 
+wipefd /dev/sdb -a
+
 docker-storage-setup
