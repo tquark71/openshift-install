@@ -1,2 +1,2 @@
 cd ~/openshift-ansible
-ansible -i openshift_inventory OSEv3 -m "systemctl start docker"
+ansible -i openshift_inventory OSEv3 -a "systemctl start docker"
