@@ -4,13 +4,13 @@ nodes
 etcd
 
 [masters]
-os-master1.mooo.com openshift_ip=10.0.0.1 openshift_schedulable=true
+os-master1.mooo.com openshift_ip=10.0.0.2 openshift_schedulable=true
 
 [etcd]
-os-master1.mooo.com openshift_ip=10.0.0.1
+os-master1.mooo.com openshift_ip=10.0.0.2
 
 [nodes]
-os-master1.mooo.com openshift_ip=10.0.0.1 openshift_schedulable=true openshift_node_labels="{'region': 'master'}" openshift_node_group_name='node-config-master'
+os-master1.mooo.com openshift_ip=10.0.0.2 openshift_schedulable=true openshift_node_labels="{'region': 'master'}" openshift_node_group_name='node-config-master'
 os-infra1.mooo.com openshift_ip=10.0.0.3 openshift_schedulable=true openshift_node_labels="{'region': 'infra'}" openshift_node_group_name='node-config-infra'
 os-node1.mooo.com openshift_ip=10.0.0.4 openshift_schedulable=true openshift_node_labels="{'region': 'primary'}" openshift_node_group_name='node-config-compute'
 os-node2.mooo.com openshift_ip=10.0.0.5 openshift_schedulable=true openshift_node_labels="{'region': 'primary'}" openshift_node_group_name='node-config-compute'
@@ -48,7 +48,7 @@ openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 
 ## Users being created in the cluster
 openshift_master_htpasswd_users={'admin': '$apr1$gY4dGJre$NzuENYX1unG90PEexPC6A1', 'user1': '$apr1$WsfL089B$V/MmpCcj6KgCt1ZL0h5PJ0'}
 
-openshift_public_hostname=console.10.0.0.1.nip.io
-openshift_master_default_subdomain=apps.10.0.0.1.nip.io
+openshift_public_hostname=console.10.0.0.2.mooo.com
+openshift_master_default_subdomain=apps.10.0.0.2.mooo.com
 openshift_master_api_port=8443
 openshift_master_console_port=8443
