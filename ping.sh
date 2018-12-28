@@ -1,2 +1,1 @@
-cd ~/openshift-ansible
-ansible -i ../openshift-install/openshift_inventory OSEv3 -m ping
+ansible -i openshift_inventory OSEv3 -m ping
