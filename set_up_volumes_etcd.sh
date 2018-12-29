@@ -2,7 +2,7 @@ INVENTORY=../openshift-install/openshift_inventory
 
 ansible -i $INVENTORY etcd -a 'yum -y install lvm2'
 ansible -i $INVENTORY etcd -a 'wipefs /dev/sdc -a'
-ansible -i $INVENTORY etcd -a 'pvcreate /dev/sdc'
+ansible -i $INVENTORY etcd -a 'pvcreate -f /dev/sdc'
 ansible -i $INVENTORY etcd -a 'vgcreate etcd-vg /dev/sdc'
 ansible -i $INVENTORY etcd -a 'lvcreate -n etcd-lv -l 100%VG etcd-vg'
 ansible -i $INVENTORY etcd -a 'mkfs.xfs /dev/mapper/etcd--vg-etcd--lv'
