@@ -1,2 +1,4 @@
+INVENTORY=../openshift-inventory/openshift_inventory
+
 cd ~/openshift-ansible
-ansible -i openshift_inventory OSEv3 -m copy -a "src=/etc/hosts dest=/etc"
+ansible -i $INVENTORY OSEv3 -m copy -a "src=/etc/hosts dest=/etc"

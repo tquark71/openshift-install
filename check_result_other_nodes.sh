@@ -1,1 +1,3 @@
-ansible -i openshift_inventory nodes:\!etcd -m shell -a 'lsblk'
+INVENTORY=../openshift-inventory/openshift_inventory
+
+ansible -i $INVENTORY nodes:\!etcd -m shell -a 'lsblk'
