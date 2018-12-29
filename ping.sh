@@ -1,3 +1,3 @@
-INVENTORY=../openshift-inventory/openshift_inventory
+INVENTORY=../openshift-install/openshift_inventory
 
 ansible -i $INVENTORY OSEv3 -m ping

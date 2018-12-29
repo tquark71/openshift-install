@@ -1,4 +1,4 @@
-INVENTORY=../openshift-inventory/openshift_inventory
+INVENTORY=../openshift-install/openshift_inventory
 
 ansible -i $INVENTORY nodes:\!etcd -a 'yum -y install lvm2'
 ansible -i $INVENTORY nodes:\!etcd -a 'pvcreate /dev/sdc'
