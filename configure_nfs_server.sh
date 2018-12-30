@@ -5,3 +5,8 @@ systemctl enable nfs.service
 echo Creating mount points
 mkdir /registry
 chmod 777 /registry
+
+echo Expoerting mount points
+echo "/registry 10.0.0.0/24(rw,sync,no_root_squash,no_subtree_check)" > /etc/exports
+
+exportfs -a
