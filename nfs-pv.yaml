@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: PersistentVolume
 metadata:
-  name: pv0001
+  name: registry-pv
 spec:
   capacity:
     storage: 5Gi
   accessModes:
   - ReadWriteOnce
   nfs:
-    path: /volume1/SHARED/registry
+    path: /registry
     server: 10.0.0.6
     persistentVolumeReclaimPolicy: Recycle
