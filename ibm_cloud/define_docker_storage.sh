@@ -3,11 +3,7 @@ DEVS=/dev/xvdc1
 VG=docker-vg
 EOF
 
-DEVICE=/dev/xvdc1
-
-sfdisk --delete $DEVICE
-sfdisk --list $DEVICE
-
-mkfs -t ext4 $DEVICE
+#parted -s /dev/xvdc rm 1
+#parted -s /dev/xvdc mkpart primary ext4 0% 100%
 
 docker-storage-setup
