@@ -3,4 +3,11 @@ DEVS=/dev/xvdc1
 VG=docker-vg
 EOF
 
+DEVICE=/dev/svdc1
+
+sfdisk --delete $DEVICE
+ sfdisk --list $DEVICE
+
+mkfs -t ext4 $DEVICE
+
 docker-storage-setup
