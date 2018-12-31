@@ -3,6 +3,7 @@ masters
 nodes
 etcd
 
+
 [masters]
 os-master01-918c5f62.openshift.patro.org openshift_ip=10.65.85.95 openshift_schedulable=true
 
