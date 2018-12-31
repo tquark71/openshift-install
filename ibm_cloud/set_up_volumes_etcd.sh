@@ -1,4 +1,4 @@
-INVENTORY=../openshift-install/openshift_inventory
+INVENTORY=./openshift_inventory
 
 ansible -i $INVENTORY etcd -a 'yum -y install lvm2'
 #ansible -i $INVENTORY etcd -a 'wipefs /dev/sdc -a'
