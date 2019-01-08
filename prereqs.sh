@@ -1,4 +1,3 @@
 INVENTORY=../openshift-install/openshift_inventory
 
-cd ~/openshift-ansible
-ansible-playbook -i $INVENTORY playbooks/prerequisites.yml
+ansible-playbook -i $INVENTORY openshift-ansible/playbooks/prerequisites.yml

@@ -1,7 +1,9 @@
-ssh-keygen -t RSA
+ssh-keygen -t rsa -P ''-f /root/.ssh/id_rsa
 
-for host in os-master1 os-infra1 os-node1 os-node2
+for host in os-master1.mooo.com os-infra1.mooo.com os-node1.mooo.com os-node2.mooo.com
 do
-  echo Copying key to $host
-  ssh-copy-id root@$host
+  echo "Adding ${hosts} to known hosts ..."
+  ssh-keyscan ${host} >> /root/.ssh/known_hosts
 done
+
+ansible OSEv3 -i ../openshift-install/openshift_inventory --ask-pass -m authorized_key -a 'key={{ lookup("file", "/root/.ssh/id_rsa.pub") }} state=present user=root'

@@ -1,4 +1,4 @@
-cd ~
 git clone https://github.com/openshift/openshift-ansible.git
-cd openshift-ansible
+pushd openshift-ansible
 git checkout release-3.11
+popd
