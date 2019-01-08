@@ -1,11 +1,8 @@
 INVENTORY=../openshift-install/openshift_inventory
 
-ansible -i $INVENTORY nodes:\!etcd -a 'yum -y install lvm2'
-ansible -i $INVENTORY nodes:\!etcd -a 'pvcreate -f /dev/sdc'
-ansible -i $INVENTORY nodes:\!etcd -a 'wipefs -a /dev/sdc'
-ansible -i $INVENTORY nodes:\!etcd -a 'vgcreate origin-vg /dev/sdc'
-ansible -i $INVENTORY nodes:\!etcd -a 'lvcreate -n origin-lv -l 100%VG origin-vg'
-ansible -i $INVENTORY nodes:\!etcd -a 'mkfs.xfs /dev/mapper/origin--vg-origin--lv'
-ansible -i $INVENTORY nodes:\!etcd -m shell -a 'mkdir /var/lib/origin'
-ansible -i $INVENTORY nodes:\!etcd -m lineinfile -a 'path=/etc/fstab regexp=origin line="/dev/mapper/origin--vg-origin--lv /var/lib/origin xfs defaults 0 0"'
-ansible -i $INVENTORY nodes:\!etcd -m shell -a 'mount -a'
+ansible -i $INVENTORY nodes:\!etcd -m yum -a 'name=lvm2 state=present'
+ansible -i $INVENTORY nodes:\!etcd -m lvg -a 'vg=origin-vg pvs=/dev/sdc state=present'
+ansible -i $INVENTORY nodes:\!etcd -m lvol -a 'lv=origin-lv vg=origin-vg state=present size=100%VG'
+ansible -i $INVENTORY nodes:\!etcd -m file -a 'path=/var/lib/origin state=directory'
+ansible -i $INVENTORY nodes:\!etcd -m filesystem -a 'fstype=xfs dev=/dev/mapper/origin--vg-origin--lv'
+ansible -i $INVENTORY nodes:\!etcd -m mount -a 'path=/var/lib/origin src=/dev/mapper/origin--vg-origin--lv fstype=xfs opts=defaults state=mounted'
