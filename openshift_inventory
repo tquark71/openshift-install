@@ -49,6 +49,6 @@ openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 
 openshift_master_htpasswd_users={'admin': '$apr1$gY4dGJre$NzuENYX1unG90PEexPC6A1', 'user1': '$apr1$WsfL089B$V/MmpCcj6KgCt1ZL0h5PJ0'}
 
 openshift_public_hostname=console.10.0.0.2.mooo.com
-openshift_master_default_subdomain=apps.10.0.0.2.mooo.com
+openshift_master_default_subdomain=apps.violet.cloudns.cx
 openshift_master_api_port=8443
 openshift_master_console_port=8443
