@@ -10,13 +10,18 @@ os-master1.mooo.com openshift_ip=10.0.0.2 openshift_schedulable=true
 os-master1.mooo.com openshift_ip=10.0.0.2
 
 [nodes]
-os-master1.mooo.com openshift_ip=10.0.0.2 openshift_schedulable=true openshift_node_labels="{'region': 'master'}" openshift_node_group_name='node-config-master'
-os-infra1.mooo.com openshift_ip=10.0.0.3 openshift_schedulable=true openshift_node_labels="{'region': 'infra'}" openshift_node_group_name='node-config-infra'
-os-node1.mooo.com openshift_ip=10.0.0.4 openshift_schedulable=true openshift_node_labels="{'region': 'primary'}" openshift_node_group_name='node-config-compute'
-os-node2.mooo.com openshift_ip=10.0.0.5 openshift_schedulable=true openshift_node_labels="{'region': 'primary'}" openshift_node_group_name='node-config-compute'
+os-master1.mooo.com openshift_ip=10.0.0.2 openshift_schedulable=true openshift_node_group_name='node-config-master'
+os-infra1.mooo.com openshift_ip=10.0.0.3 openshift_schedulable=true openshift_node_group_name='node-config-infra'
+os-node1.mooo.com openshift_ip=10.0.0.4 openshift_schedulable=true openshift_node_group_name='node-config-compute'
+os-node2.mooo.com openshift_ip=10.0.0.5 openshift_schedulable=true openshift_node_group_name='node-config-compute'
 
 [OSEv3:vars]
 openshift_additional_repos=[{'id': 'centos-paas', 'name': 'centos-paas', 'baseurl' :'https://buildlogs.centos.org/centos/7/paas/x86_64/openshift-origin311', 'gpgcheck' :'0', 'enabled' :'1'}]
+
+openshift_node_groups=[{'name': 'os-master1.mooo.com', 'labels': ['node-role.kubernetes.io/master=true']},
+{'name': 'os-infra1.mooo.com', 'labels': ['node-role.kubernetes.io/infra=true']},
+{'name': 'os-node1.mooo.com', 'labels': ['node-role.kubernetes.io/compute=true']},
+{'name': 'os-node2.mooo.com', 'labels': ['node-role.kubernetes.io/compute=true']}]
 
 ansible_ssh_user=root
 enable_excluders=False
